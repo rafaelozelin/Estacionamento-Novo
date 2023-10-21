@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Estacionamento.API.Abstract\Estacionamento.API.Abstract.csproj" />
+    <ProjectReference Include="..\Estacionamento.API.Domain\Estacionamento.API.Domain.csproj" />
+    <ProjectReference Include="..\Estacionamento.API.Infra\Estacionamento.API.Infra.csproj" />
+  </ItemGroup>
+
+</Project>

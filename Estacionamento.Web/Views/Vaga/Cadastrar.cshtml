@@ -1,0 +1,45 @@
+﻿@model Estacionamento.Web.Models.VagaViewModel
+
+@{
+    ViewData["Title"] = "Cadastrar Vagas";
+}
+
+<h1>Cadastrar Vagas</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Cadastrar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="QuantidadeMoto" class="control-label">Quantidade de Motos</label>
+                <input asp-for="QuantidadeMoto" class="form-control" />
+                <span asp-validation-for="QuantidadeMoto" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="QuantidadeCarro" class="control-label">Quantidade de Carros</label>
+                <input asp-for="QuantidadeCarro" class="form-control" />
+                <span asp-validation-for="QuantidadeCarro" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="QuantidadeGrande" class="control-label">Quantidade de Grande</label>
+                <input asp-for="QuantidadeGrande" class="form-control" />
+                <span asp-validation-for="QuantidadeGrande" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Cadastrar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Listar">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
