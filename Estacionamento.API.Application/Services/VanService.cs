@@ -9,17 +9,14 @@ namespace Estacionamento.API.Application.Services
     public class VanService : VeiculoService
     {
         private readonly IVagaRepository _vagaRepository;
-        private readonly IMapper _map;
 
         public override TipoVeiculo TipoVeiculo => TipoVeiculo.Van;
 
         public VanService(IVeiculoRepository veiculoRepository,
                             IMapper mapper,
-                            IMapper map,
                             IVagaRepository vagaRepository) : base(veiculoRepository, mapper)
         {
             _vagaRepository = vagaRepository;
-            _map = map;
         }
 
         public override async Task CadastrarAsync(VeiculoRequest veiculoRequest)
@@ -70,12 +67,12 @@ namespace Estacionamento.API.Application.Services
         {
             var veiculos = await _veiculoRepository.GetByTipo(TipoVeiculo.Van);
 
-            return veiculos.Select(c => _map.Map<VeiculoResponse>(c)).ToList();
+            return veiculos.Select(c => _mapper.Map<VeiculoResponse>(c)).ToList();
         }
 
         private Veiculo MontarVeiculo(VeiculoRequest veiculoRequest, int idVaga, DateTime dataEntrada)
         {
-            var veiculo = _map.Map<Veiculo>(veiculoRequest);
+            var veiculo = _mapper.Map<Veiculo>(veiculoRequest);
 
             veiculo.Entrada = dataEntrada;
             veiculo.TipoVeiculo = TipoVeiculo.Van;

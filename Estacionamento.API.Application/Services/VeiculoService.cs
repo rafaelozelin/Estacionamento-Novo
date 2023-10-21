@@ -11,7 +11,7 @@ namespace Estacionamento.API.Application.Services
         public abstract TipoVeiculo TipoVeiculo { get; }
 
         protected readonly IVeiculoRepository _veiculoRepository;
-        private readonly IMapper _mapper;
+        protected readonly IMapper _mapper;
 
         protected VeiculoService(IVeiculoRepository veiculoRepository, IMapper mapper)
         {
