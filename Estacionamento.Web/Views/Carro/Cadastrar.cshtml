@@ -4,9 +4,28 @@
     ViewData["Title"] = "Cadastrar Carro";
 }
 
+<style>
+    .error {
+        border: 1px solid;
+        margin: 10px 0px;
+        padding: 15px 10px 15px 50px;
+        background-repeat: no-repeat;
+        background-position: 10px center;
+        color: #D8000C;
+        background-color: #FFBABA;
+        background-image: url(https://i.imgur.com/GnyDvKN.png);
+    }
+</style>
+
 <h1>Cadastrar Carro</h1>
 
 <hr />
+
+@if (@TempData["Message"] is not null)
+{
+    <h3 class="error"><strong>@TempData["Message"]</strong></h3>
+}
+
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Cadastrar">
@@ -24,10 +43,16 @@
     </div>
 </div>
 
+
+
 <div>
     <a asp-action="Listar">Voltar</a>
 </div>
 
+
+
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

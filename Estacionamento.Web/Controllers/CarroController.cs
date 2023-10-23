@@ -72,12 +72,18 @@ namespace Estacionamento.Web.Controllers
                 var responseRequest = await response.Content.ReadAsStringAsync();
 
                 if (!response.IsSuccessStatusCode)
-                    ModelState.AddModelError(null, "Errroooo");
+                {
+                    var erro = JsonConvert.DeserializeObject<ErrorRequest>(responseRequest)!;
+                    TempData["Message"] = erro.Detail;
+
+                    return View(new VeiculoCadastrar());
+                }
 
                 return RedirectToAction("Listar");
             }
             catch (Exception ex)
             {
+                var message = ex.Message;
                 throw ex;
             }
         }
