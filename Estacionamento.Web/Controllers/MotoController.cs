@@ -82,45 +82,6 @@ namespace Estacionamento.Web.Controllers
             }
         }
 
-        //[HttpGet]
-        //public async Task<IActionResult> Editar(int id)
-        //{
-        //    var baseUrl = _configuration["Estacionamento.API:BaseUrlVeiculo"]; 
-        //    var urlRedirecionamento = $@"{baseUrl}listar/{id}";
-
-        //    VeiculoViewModel moto = null;
-
-        //    try
-        //    {
-        //        HttpResponseMessage response = await _httpCustomService.RequestGetAsync(urlRedirecionamento);
-
-        //        if (response.IsSuccessStatusCode)
-        //        {
-        //            var content = await response.Content.ReadAsStringAsync();
-        //            moto = JsonConvert.DeserializeObject<VeiculoViewModel>(content)!;
-        //        }
-        //        else
-        //        {
-        //            ModelState.AddModelError(null, "Errroooo");
-        //        }
-
-        //        return View(moto);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        var message = ex.Message;
-        //        throw ex;
-        //    }
-        //}
-
-        //[HttpPost]
-        //public IActionResult Editar([Bind("Id, Placa, Entrada, Saida")] VeiculoViewModel veiculo)
-        //{
-        //    //var ve = _veiculos.FirstOrDefault(v => v.Id.Equals(veiculo.Id));
-
-        //    return RedirectToAction("Listar");
-        //}
-
         public async Task<IActionResult> Deletar(int id)
         {
             var baseUrl = _configuration["Estacionamento.API:BaseUrlVeiculo"];
